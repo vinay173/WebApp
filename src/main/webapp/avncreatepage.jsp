@@ -9,7 +9,7 @@
 <title>AvnCreatePage</title>
 
 </head>
-<style>
+<style type="text/css">
 body { 
     background-color: #f3f6f9; 
 }
@@ -88,13 +88,13 @@ select{
 <body>
 <div id="header">
 <h1>
-<font size="5" color="#4d4d69">Create Repair Ticket</font>
+<span style="font-size: larger; color:#4d4d69">Create Repair Ticket</span>
 </h1>
 </div>
 
 <div id="headerone">
 <h2>
-<font size="5" color="#4d4d69">Enter the details to create ticket</font>
+<span style="font-size: larger; color:#4d4d69">Enter the details to create ticket</span>
  </h2>
 </div>
 
