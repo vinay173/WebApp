@@ -1,7 +1,7 @@
 
 node {
     // Get Artifactory server instance, defined in the Artifactory Plugin administration page.
-    def server = Artifactory.server "artifactory"
+    def server = Artifactory.server "artifactory-deploymeny"
     // Create an Artifactory Maven instance.
     def rtMaven = Artifactory.newMavenBuild()
     def buildInfo
@@ -9,15 +9,15 @@ node {
  rtMaven.tool = "maven"
 
     stage('Clone sources') {
-        git url: 'https://github.com/duorg/webapp.git'
+        git url: 'https://github.com/vinay173/webapp.git'
     }
 
     stage('Artifactory configuration') {
         // Tool name from Jenkins configuration
         rtMaven.tool = "maven"
         // Set Artifactory repositories for dependencies resolution and artifacts deployment.
-        rtMaven.deployer releaseRepo:'libs-release-local', snapshotRepo:'libs-snapshot-local', server: server
-        rtMaven.resolver releaseRepo:'libs-release', snapshotRepo:'libs-snapshot', server: server
+        rtMaven.deployer releaseRepo:'artifactory-maven', snapshotRepo:'artifactory-maven', server: server
+        rtMaven.resolver releaseRepo:'artifactory-maven', snapshotRepo:'artifactory-maven', server: server
     }
 
     stage('Maven build') {
